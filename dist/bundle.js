@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "6c18983ac5dd1c0ddd50"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "047784b450ad99c0fe53"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -9542,7 +9542,7 @@
 
 	_reactDom2['default'].render(_react2['default'].createElement(_containersRoot2['default'], null), document.getElementById('app'));
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(252); if (makeExportsHot(module, __webpack_require__(124))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(251); if (makeExportsHot(module, __webpack_require__(124))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
@@ -29528,38 +29528,26 @@
 
 	var _reactRedux = __webpack_require__(239);
 
-	var _reduxThunk = __webpack_require__(249);
-
-	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
-
-	var _reduxLogger = __webpack_require__(250);
+	var _reduxLogger = __webpack_require__(249);
 
 	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-	var _reducer = __webpack_require__(251);
+	var _reducer = __webpack_require__(250);
 
 	var _reducer2 = _interopRequireDefault(_reducer);
+
+	var _actions = __webpack_require__(254);
 
 	var _App = __webpack_require__(255);
 
 	var _App2 = _interopRequireDefault(_App);
 
-	/** INITIAL STATE **/
-	var initialState = {
-	  pickeroptions: ['reactjs', 'frontend', 'programming'],
-	  selectedReddit: 'reactjs',
-	  posts: []
-	};
-
 	/** STORE **/
 	var loggerMiddleware = (0, _reduxLogger2['default'])();
 
-	var store = (0, _redux.applyMiddleware)(_reduxThunk2['default'], loggerMiddleware)(_redux.createStore)(_reducer2['default']);
+	var store = (0, _redux.applyMiddleware)(loggerMiddleware)(_redux.createStore)(_reducer2['default']);
 
-	store.dispatch({
-	  'type': 'SET_STATE',
-	  initialState: initialState
-	});
+	store.dispatch((0, _actions.setInitialState)());
 
 	/** ROOT OBJECT **/
 	exports['default'] = _react2['default'].createClass({
@@ -29575,7 +29563,7 @@
 	});
 	module.exports = exports['default'];
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(252); if (makeExportsHot(module, __webpack_require__(124))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Root.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(251); if (makeExportsHot(module, __webpack_require__(124))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Root.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
@@ -30812,28 +30800,6 @@
 /* 249 */
 /***/ function(module, exports) {
 
-	'use strict';
-
-	exports.__esModule = true;
-	exports['default'] = thunkMiddleware;
-
-	function thunkMiddleware(_ref) {
-	  var dispatch = _ref.dispatch;
-	  var getState = _ref.getState;
-
-	  return function (next) {
-	    return function (action) {
-	      return typeof action === 'function' ? action(dispatch, getState) : next(action);
-	    };
-	  };
-	}
-
-	module.exports = exports['default'];
-
-/***/ },
-/* 250 */
-/***/ function(module, exports) {
-
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
@@ -30948,7 +30914,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 251 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(62), RootInstanceProvider = __webpack_require__(70), ReactMount = __webpack_require__(72), React = __webpack_require__(124); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -30960,16 +30926,12 @@
 	});
 	function rootReducer(state, action) {
 	  switch (action.type) {
-	    case 'SELECT_REDDIT':
+	    case 'SELECT_CENTER':
 	      return Object.assign({}, state, {
-	        selectedReddit: action.selectedReddit
+	        selected: action.selected
 	      });
 	    case 'SET_STATE':
 	      return Object.assign({}, state, action.initialState);
-	    case 'RECEIVE_POSTS':
-	      return Object.assign({}, state, {
-	        posts: action.posts
-	      });
 	    default:
 	      return state;
 	  }
@@ -30977,17 +30939,17 @@
 	exports['default'] = rootReducer;
 	module.exports = exports['default'];
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(252); if (makeExportsHot(module, __webpack_require__(124))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "reducer.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(251); if (makeExportsHot(module, __webpack_require__(124))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "reducer.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 252 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var isReactClassish = __webpack_require__(253),
-	    isReactElementish = __webpack_require__(254);
+	var isReactClassish = __webpack_require__(252),
+	    isReactElementish = __webpack_require__(253);
 
 	function makeExportsHot(m, React) {
 	  if (isReactElementish(m.exports, React)) {
@@ -31041,7 +31003,7 @@
 
 
 /***/ },
-/* 253 */
+/* 252 */
 /***/ function(module, exports) {
 
 	function hasRender(Class) {
@@ -31091,10 +31053,10 @@
 	module.exports = isReactClassish;
 
 /***/ },
-/* 254 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isReactClassish = __webpack_require__(253);
+	var isReactClassish = __webpack_require__(252);
 
 	function isReactElementish(obj, React) {
 	  if (!obj) {
@@ -31106,6 +31068,46 @@
 	}
 
 	module.exports = isReactElementish;
+
+/***/ },
+/* 254 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(62), RootInstanceProvider = __webpack_require__(70), ReactMount = __webpack_require__(72), React = __webpack_require__(124); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	/** INITIAL STATE **/
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	exports.setInitialState = setInitialState;
+	exports.selectCenter = selectCenter;
+	var initialState = {
+	  cities: {
+	    'London': { lat: 51.500152, lon: -0.126236 },
+	    'Washington, DC': { lat: 38.895112, lon: -77.036366 },
+	    'Beirut': { lat: 33.888629, lon: 35.495479 }
+	  },
+	  selected: 'Washington, DC'
+	};
+
+	function setInitialState() {
+	  return {
+	    type: 'SET_STATE',
+	    initialState: initialState
+	  };
+	}
+
+	function selectCenter(selected) {
+	  return {
+	    type: 'SELECT_CENTER',
+	    selected: selected
+	  };
+	}
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(251); if (makeExportsHot(module, __webpack_require__(124))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "actions.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
 /* 255 */
@@ -31127,15 +31129,15 @@
 
 	var _reactRedux = __webpack_require__(239);
 
-	var _actions = __webpack_require__(256);
-
-	var _componentsPicker = __webpack_require__(258);
+	var _componentsPicker = __webpack_require__(256);
 
 	var _componentsPicker2 = _interopRequireDefault(_componentsPicker);
 
-	var _componentsPosts = __webpack_require__(259);
+	var _componentsMap = __webpack_require__(257);
 
-	var _componentsPosts2 = _interopRequireDefault(_componentsPosts);
+	var _componentsMap2 = _interopRequireDefault(_componentsMap);
+
+	var _actions = __webpack_require__(254);
 
 	var App = _react2['default'].createClass({
 	  displayName: 'App',
@@ -31143,55 +31145,48 @@
 	  componentDidMount: function componentDidMount() {
 	    var _props = this.props;
 	    var dispatch = _props.dispatch;
-	    var selectedReddit = _props.selectedReddit;
-
-	    dispatch((0, _actions.fetchPosts)(selectedReddit));
+	    var selectedCenter = _props.selectedCenter;
 	  },
 
 	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
-	    if (nextProps.selectedReddit !== this.props.selectedReddit) {
+	    if (nextProps.selectedCenter !== this.props.selectedCenter) {
 	      var dispatch = nextProps.dispatch;
-	      var selectedReddit = nextProps.selectedReddit;
-
-	      dispatch((0, _actions.fetchPosts)(selectedReddit));
+	      var selectedCenter = nextProps.selectedCenter;
 	    }
 	  },
 	  handleChange: function handleChange(selected) {
-	    this.props.dispatch({
-	      'type': 'SELECT_REDDIT',
-	      selectedReddit: selected
-	    });
+	    this.props.dispatch((0, _actions.selectCenter)(selected));
 	  },
 
 	  render: function render() {
 	    var _props2 = this.props;
-	    var selectedReddit = _props2.selectedReddit;
+	    var selectedCenter = _props2.selectedCenter;
 	    var options = _props2.options;
-	    var posts = _props2.posts;
+	    var mapCenter = _props2.mapCenter;
 
 	    return _react2['default'].createElement(
 	      'div',
 	      null,
-	      _react2['default'].createElement(_componentsPicker2['default'], { value: selectedReddit,
+	      _react2['default'].createElement(_componentsPicker2['default'], { value: selectedCenter,
 	        onChange: this.handleChange,
 	        options: options }),
-	      _react2['default'].createElement(_componentsPosts2['default'], { posts: posts })
+	      _react2['default'].createElement(_componentsMap2['default'], { center: mapCenter })
 	    );
 	  }
 	});
 
 	function mapStateToProps(state) {
 	  return {
-	    selectedReddit: state.selectedReddit,
-	    options: state.pickeroptions,
-	    posts: state.posts
+	    selectedCenter: state.selected,
+	    options: Object.keys(state.cities),
+	    mapCenter: state.cities[state.selected]
 	  };
 	}
 
 	exports['default'] = (0, _reactRedux.connect)(mapStateToProps)(App);
 	module.exports = exports['default'];
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(252); if (makeExportsHot(module, __webpack_require__(124))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "App.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(251); if (makeExportsHot(module, __webpack_require__(124))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "App.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
@@ -31200,443 +31195,13 @@
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(62), RootInstanceProvider = __webpack_require__(70), ReactMount = __webpack_require__(72), React = __webpack_require__(124); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 
-	'use strict';
+	"use strict";
 
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	exports.fetchPosts = fetchPosts;
-
-	__webpack_require__(257);
-
-	function requestPosts(reddit) {
-	  return {
-	    type: 'REQUEST_POSTS',
-	    reddit: reddit
-	  };
-	}
-
-	function receivePosts(reddit, json) {
-	  console.log(json);
-	  return {
-	    type: 'RECEIVE_POSTS',
-	    reddit: reddit,
-	    posts: json.data.children.map(function (child) {
-	      return child.data;
-	    })
-	  };
-	}
-
-	function fetchPosts(reddit) {
-	  return function (dispatch) {
-	    dispatch(requestPosts(reddit));
-	    return fetch('http://www.reddit.com/r/' + reddit + '.json').then(function (req) {
-	      return req.json();
-	    }).then(function (json) {
-	      return dispatch(receivePosts(reddit, json));
-	    });
-	  };
-	}
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(252); if (makeExportsHot(module, __webpack_require__(124))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "actions.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
-
-/***/ },
-/* 257 */
-/***/ function(module, exports) {
-
-	(function() {
-	  'use strict';
-
-	  if (self.fetch) {
-	    return
-	  }
-
-	  function normalizeName(name) {
-	    if (typeof name !== 'string') {
-	      name = String(name)
-	    }
-	    if (/[^a-z0-9\-#$%&'*+.\^_`|~]/i.test(name)) {
-	      throw new TypeError('Invalid character in header field name')
-	    }
-	    return name.toLowerCase()
-	  }
-
-	  function normalizeValue(value) {
-	    if (typeof value !== 'string') {
-	      value = String(value)
-	    }
-	    return value
-	  }
-
-	  function Headers(headers) {
-	    this.map = {}
-
-	    if (headers instanceof Headers) {
-	      headers.forEach(function(value, name) {
-	        this.append(name, value)
-	      }, this)
-
-	    } else if (headers) {
-	      Object.getOwnPropertyNames(headers).forEach(function(name) {
-	        this.append(name, headers[name])
-	      }, this)
-	    }
-	  }
-
-	  Headers.prototype.append = function(name, value) {
-	    name = normalizeName(name)
-	    value = normalizeValue(value)
-	    var list = this.map[name]
-	    if (!list) {
-	      list = []
-	      this.map[name] = list
-	    }
-	    list.push(value)
-	  }
-
-	  Headers.prototype['delete'] = function(name) {
-	    delete this.map[normalizeName(name)]
-	  }
-
-	  Headers.prototype.get = function(name) {
-	    var values = this.map[normalizeName(name)]
-	    return values ? values[0] : null
-	  }
-
-	  Headers.prototype.getAll = function(name) {
-	    return this.map[normalizeName(name)] || []
-	  }
-
-	  Headers.prototype.has = function(name) {
-	    return this.map.hasOwnProperty(normalizeName(name))
-	  }
-
-	  Headers.prototype.set = function(name, value) {
-	    this.map[normalizeName(name)] = [normalizeValue(value)]
-	  }
-
-	  Headers.prototype.forEach = function(callback, thisArg) {
-	    Object.getOwnPropertyNames(this.map).forEach(function(name) {
-	      this.map[name].forEach(function(value) {
-	        callback.call(thisArg, value, name, this)
-	      }, this)
-	    }, this)
-	  }
-
-	  function consumed(body) {
-	    if (body.bodyUsed) {
-	      return Promise.reject(new TypeError('Already read'))
-	    }
-	    body.bodyUsed = true
-	  }
-
-	  function fileReaderReady(reader) {
-	    return new Promise(function(resolve, reject) {
-	      reader.onload = function() {
-	        resolve(reader.result)
-	      }
-	      reader.onerror = function() {
-	        reject(reader.error)
-	      }
-	    })
-	  }
-
-	  function readBlobAsArrayBuffer(blob) {
-	    var reader = new FileReader()
-	    reader.readAsArrayBuffer(blob)
-	    return fileReaderReady(reader)
-	  }
-
-	  function readBlobAsText(blob) {
-	    var reader = new FileReader()
-	    reader.readAsText(blob)
-	    return fileReaderReady(reader)
-	  }
-
-	  var support = {
-	    blob: 'FileReader' in self && 'Blob' in self && (function() {
-	      try {
-	        new Blob();
-	        return true
-	      } catch(e) {
-	        return false
-	      }
-	    })(),
-	    formData: 'FormData' in self
-	  }
-
-	  function Body() {
-	    this.bodyUsed = false
-
-
-	    this._initBody = function(body) {
-	      this._bodyInit = body
-	      if (typeof body === 'string') {
-	        this._bodyText = body
-	      } else if (support.blob && Blob.prototype.isPrototypeOf(body)) {
-	        this._bodyBlob = body
-	      } else if (support.formData && FormData.prototype.isPrototypeOf(body)) {
-	        this._bodyFormData = body
-	      } else if (!body) {
-	        this._bodyText = ''
-	      } else {
-	        throw new Error('unsupported BodyInit type')
-	      }
-	    }
-
-	    if (support.blob) {
-	      this.blob = function() {
-	        var rejected = consumed(this)
-	        if (rejected) {
-	          return rejected
-	        }
-
-	        if (this._bodyBlob) {
-	          return Promise.resolve(this._bodyBlob)
-	        } else if (this._bodyFormData) {
-	          throw new Error('could not read FormData body as blob')
-	        } else {
-	          return Promise.resolve(new Blob([this._bodyText]))
-	        }
-	      }
-
-	      this.arrayBuffer = function() {
-	        return this.blob().then(readBlobAsArrayBuffer)
-	      }
-
-	      this.text = function() {
-	        var rejected = consumed(this)
-	        if (rejected) {
-	          return rejected
-	        }
-
-	        if (this._bodyBlob) {
-	          return readBlobAsText(this._bodyBlob)
-	        } else if (this._bodyFormData) {
-	          throw new Error('could not read FormData body as text')
-	        } else {
-	          return Promise.resolve(this._bodyText)
-	        }
-	      }
-	    } else {
-	      this.text = function() {
-	        var rejected = consumed(this)
-	        return rejected ? rejected : Promise.resolve(this._bodyText)
-	      }
-	    }
-
-	    if (support.formData) {
-	      this.formData = function() {
-	        return this.text().then(decode)
-	      }
-	    }
-
-	    this.json = function() {
-	      return this.text().then(JSON.parse)
-	    }
-
-	    return this
-	  }
-
-	  // HTTP methods whose capitalization should be normalized
-	  var methods = ['DELETE', 'GET', 'HEAD', 'OPTIONS', 'POST', 'PUT']
-
-	  function normalizeMethod(method) {
-	    var upcased = method.toUpperCase()
-	    return (methods.indexOf(upcased) > -1) ? upcased : method
-	  }
-
-	  function Request(input, options) {
-	    options = options || {}
-	    var body = options.body
-	    if (Request.prototype.isPrototypeOf(input)) {
-	      if (input.bodyUsed) {
-	        throw new TypeError('Already read')
-	      }
-	      this.url = input.url
-	      this.credentials = input.credentials
-	      if (!options.headers) {
-	        this.headers = new Headers(input.headers)
-	      }
-	      this.method = input.method
-	      this.mode = input.mode
-	      if (!body) {
-	        body = input._bodyInit
-	        input.bodyUsed = true
-	      }
-	    } else {
-	      this.url = input
-	    }
-
-	    this.credentials = options.credentials || this.credentials || 'omit'
-	    if (options.headers || !this.headers) {
-	      this.headers = new Headers(options.headers)
-	    }
-	    this.method = normalizeMethod(options.method || this.method || 'GET')
-	    this.mode = options.mode || this.mode || null
-	    this.referrer = null
-
-	    if ((this.method === 'GET' || this.method === 'HEAD') && body) {
-	      throw new TypeError('Body not allowed for GET or HEAD requests')
-	    }
-	    this._initBody(body)
-	  }
-
-	  Request.prototype.clone = function() {
-	    return new Request(this)
-	  }
-
-	  function decode(body) {
-	    var form = new FormData()
-	    body.trim().split('&').forEach(function(bytes) {
-	      if (bytes) {
-	        var split = bytes.split('=')
-	        var name = split.shift().replace(/\+/g, ' ')
-	        var value = split.join('=').replace(/\+/g, ' ')
-	        form.append(decodeURIComponent(name), decodeURIComponent(value))
-	      }
-	    })
-	    return form
-	  }
-
-	  function headers(xhr) {
-	    var head = new Headers()
-	    var pairs = xhr.getAllResponseHeaders().trim().split('\n')
-	    pairs.forEach(function(header) {
-	      var split = header.trim().split(':')
-	      var key = split.shift().trim()
-	      var value = split.join(':').trim()
-	      head.append(key, value)
-	    })
-	    return head
-	  }
-
-	  Body.call(Request.prototype)
-
-	  function Response(bodyInit, options) {
-	    if (!options) {
-	      options = {}
-	    }
-
-	    this._initBody(bodyInit)
-	    this.type = 'default'
-	    this.status = options.status
-	    this.ok = this.status >= 200 && this.status < 300
-	    this.statusText = options.statusText
-	    this.headers = options.headers instanceof Headers ? options.headers : new Headers(options.headers)
-	    this.url = options.url || ''
-	  }
-
-	  Body.call(Response.prototype)
-
-	  Response.prototype.clone = function() {
-	    return new Response(this._bodyInit, {
-	      status: this.status,
-	      statusText: this.statusText,
-	      headers: new Headers(this.headers),
-	      url: this.url
-	    })
-	  }
-
-	  Response.error = function() {
-	    var response = new Response(null, {status: 0, statusText: ''})
-	    response.type = 'error'
-	    return response
-	  }
-
-	  var redirectStatuses = [301, 302, 303, 307, 308]
-
-	  Response.redirect = function(url, status) {
-	    if (redirectStatuses.indexOf(status) === -1) {
-	      throw new RangeError('Invalid status code')
-	    }
-
-	    return new Response(null, {status: status, headers: {location: url}})
-	  }
-
-	  self.Headers = Headers;
-	  self.Request = Request;
-	  self.Response = Response;
-
-	  self.fetch = function(input, init) {
-	    return new Promise(function(resolve, reject) {
-	      var request
-	      if (Request.prototype.isPrototypeOf(input) && !init) {
-	        request = input
-	      } else {
-	        request = new Request(input, init)
-	      }
-
-	      var xhr = new XMLHttpRequest()
-
-	      function responseURL() {
-	        if ('responseURL' in xhr) {
-	          return xhr.responseURL
-	        }
-
-	        // Avoid security warnings on getResponseHeader when not allowed by CORS
-	        if (/^X-Request-URL:/m.test(xhr.getAllResponseHeaders())) {
-	          return xhr.getResponseHeader('X-Request-URL')
-	        }
-
-	        return;
-	      }
-
-	      xhr.onload = function() {
-	        var status = (xhr.status === 1223) ? 204 : xhr.status
-	        if (status < 100 || status > 599) {
-	          reject(new TypeError('Network request failed'))
-	          return
-	        }
-	        var options = {
-	          status: status,
-	          statusText: xhr.statusText,
-	          headers: headers(xhr),
-	          url: responseURL()
-	        }
-	        var body = 'response' in xhr ? xhr.response : xhr.responseText;
-	        resolve(new Response(body, options))
-	      }
-
-	      xhr.onerror = function() {
-	        reject(new TypeError('Network request failed'))
-	      }
-
-	      xhr.open(request.method, request.url, true)
-
-	      if (request.credentials === 'include') {
-	        xhr.withCredentials = true
-	      }
-
-	      if ('responseType' in xhr && support.blob) {
-	        xhr.responseType = 'blob'
-	      }
-
-	      request.headers.forEach(function(value, name) {
-	        xhr.setRequestHeader(name, value)
-	      })
-
-	      xhr.send(typeof request._bodyInit === 'undefined' ? null : request._bodyInit)
-	    })
-	  }
-	  self.fetch.polyfill = true
-	})();
-
-
-/***/ },
-/* 258 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(62), RootInstanceProvider = __webpack_require__(70), ReactMount = __webpack_require__(72), React = __webpack_require__(124); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
+	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 	var _react = __webpack_require__(124);
 
@@ -31646,22 +31211,17 @@
 	  var value = _ref.value;
 	  var onChange = _ref.onChange;
 	  var options = _ref.options;
-	  return _react2['default'].createElement(
-	    'span',
-	    null,
-	    _react2['default'].createElement(
-	      'h1',
-	      null,
-	      value
-	    ),
-	    _react2['default'].createElement(
-	      'select',
+	  return _react2["default"].createElement(
+	    "span",
+	    { id: "picker" },
+	    _react2["default"].createElement(
+	      "select",
 	      { onChange: function (e) {
 	          return onChange(e.target.value);
 	        }, value: value },
 	      options.map(function (option) {
-	        return _react2['default'].createElement(
-	          'option',
+	        return _react2["default"].createElement(
+	          "option",
 	          { value: option, key: option },
 	          option
 	        );
@@ -31669,18 +31229,19 @@
 	    )
 	  );
 	};
-	exports['default'] = Picker;
-	module.exports = exports['default'];
+	exports["default"] = Picker;
+	module.exports = exports["default"];
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(252); if (makeExportsHot(module, __webpack_require__(124))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Picker.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(251); if (makeExportsHot(module, __webpack_require__(124))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Picker.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 259 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(62), RootInstanceProvider = __webpack_require__(70), ReactMount = __webpack_require__(72), React = __webpack_require__(124); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 
+	/* global mapboxgl */
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
@@ -31693,39 +31254,30 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var Posts = function Posts(_ref) {
-	  var posts = _ref.posts;
-	  return _react2['default'].createElement(
-	    'ul',
-	    null,
-	    posts.map(function (post, i) {
-	      return _react2['default'].createElement(
-	        'li',
-	        { key: i },
-	        post.title + ' | ',
-	        _react2['default'].createElement(
-	          'a',
-	          { target: '_blank', href: 'http://reddit.com' + post.permalink },
-	          'Comments'
-	        ),
-	        _react2['default'].createElement(
-	          'em',
-	          null,
-	          ' - '
-	        ),
-	        _react2['default'].createElement(
-	          'a',
-	          { target: '_blank', href: post.url },
-	          'URL'
-	        )
-	      );
-	    })
-	  );
-	};
-	exports['default'] = Posts;
+	mapboxgl.accessToken = 'pk.eyJ1Ijoia2FtaWN1dCIsImEiOiJMVzF2NThZIn0.WO0ArcIIzYVioen3HpfugQ';
+	exports['default'] = _react2['default'].createClass({
+	  displayName: 'Map',
+
+	  componentDidMount: function componentDidMount() {
+	    var mapCenter = this.props.center;
+	    this.map = new mapboxgl.Map({
+	      container: this.refs.map,
+	      style: 'mapbox://styles/mapbox/streets-v8',
+	      center: [mapCenter.lon, mapCenter.lat],
+	      zoom: 9
+	    });
+	  },
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	    var mapCenter = nextProps.center;
+	    this.map.flyTo({ center: [mapCenter.lon, mapCenter.lat], zoom: 9 });
+	  },
+	  render: function render() {
+	    return _react2['default'].createElement('div', { ref: 'map', id: 'map' });
+	  }
+	});
 	module.exports = exports['default'];
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(252); if (makeExportsHot(module, __webpack_require__(124))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Posts.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(251); if (makeExportsHot(module, __webpack_require__(124))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Map.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ }
